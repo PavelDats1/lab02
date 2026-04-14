@@ -8,6 +8,7 @@
 ## 1. Tuturial
 
 ### 1.1 Создание  README.md
+```bash
 cat > README.md << 'EOF'
 > # Lab02
 > ## Git Version Control System
@@ -19,8 +20,9 @@ pavel@pavel:~/workspace/projects/lab02$ cat README.md
 # Lab02
 ## Git Version Control System
 This repository contains laboratory work #2 on Git.
-
+```
 ### 1.2 Первый коммит
+```bash
 git add README.md
 git status
 On branch main
@@ -34,8 +36,9 @@ git commit -m "initial commit"
 [main (root-commit) e59fb8b] initial commit
  1 file changed, 3 insertions(+)
  create mode 100644 README.md
-
+```
 ### 1.3 Отправка на Github
+```bash
 git push -u origin main
 Username for 'https://github.com': PavelDats1
 Password for 'https://PavelDats1@github.com': 
@@ -47,7 +50,9 @@ Writing objects: 100% (5/5), 595 bytes | 198.00 KiB/s, done.
 Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
 To https://github.com/PavelDats1/lab02.git
    476216f..f23be2d  main -> main
+```
 ### 1.4 Создание .gitignore
+```bash
 cat > .gitignore << 'EOF'
 *build*/
 *install*/
@@ -83,8 +88,9 @@ Writing objects: 100% (3/3), 342 bytes | 342.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 To https://github.com/PavelDats1/lab02.git
    f23be2d..d337ead  main -> main
-
+```
 ### 1.5 Создание структуры папок
+```bash
 mkdir sources include examples
 ls -la
 
@@ -101,8 +107,9 @@ drwxrwxr-x 2 pavel pavel 4096 Apr  1 14:52 include
 -rw-rw-r-- 1 pavel pavel    0 Apr  1 14:21 REPORT.md
 -rw-rw-r-- 1 pavel pavel 1024 Apr  1 14:22 .REPORT.md.swp
 drwxrwxr-x 2 pavel pavel 4096 Apr  1 14:52 sources
-
+```
 ### 1.6 Cоздание файлов исходного кода
+```bash
 cat > include/print.hpp << 'EOF'
 #include <fstream>
 #include <iostream>
@@ -180,8 +187,9 @@ int main(int argc, char** argv)
   std::ofstream file("log.txt");
   print(std::string("hello"), file);
 }
-
+```
 ### 1.6 Kоммит "added sources"
+```bash
 git add .
 git status
 #Output:
@@ -214,8 +222,9 @@ Writing objects: 100% (10/10), 1000 bytes | 1000.00 KiB/s, done.
 Total 10 (delta 0), reused 0 (delta 0), pack-reused 0
 To https://github.com/PavelDats1/lab02.git
    d337ead..e86dccc  main -> main
-
+```
 ### 1.7 Обновление README.md
+```bash
 cat > README.md << 'EOF'
 # Lab02
 ## Git Version Control System
@@ -258,10 +267,11 @@ Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 To https://github.com/PavelDats1/lab02.git
    e86dccc..c992097  main -> main
-
+```
 ## 2. Homework Part 1
 
 ### 2.1 Создаем hello_world.cpp с плохим стилем
+```bash
 cat > hello_world.cpp << 'EOF'
 #include <iostream>
 using namespace std;
@@ -293,8 +303,9 @@ Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 To https://github.com/PavelDats1/lab02.git
    c992097..46245a5  main -> main
-
+```
 ### 2.2 Добавляем ввод имени
+```bash
 cat > hello_world.cpp << 'EOF'
 #include <iostream>
 #include <string>
@@ -341,10 +352,11 @@ Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 To https://github.com/PavelDats1/lab02.git
    46245a5..52d5c38  main -> main
-
+```
 ## Homework Part 2
 
 ### 3.1 Создаем ветку patch1
+```bash
 git checkout -b patch1
 git branch
 #Output:
@@ -352,8 +364,9 @@ Switched to a new branch 'patch1'
 
   main
 * patch1
-
+```
 ### 3.2 Убираем using namespace std
+```bash
 cat > hello_world.cpp << 'EOF'
 #include <iostream>
 #include <string>
@@ -384,8 +397,9 @@ int main()
 
 [patch1 3b1cec4] Remove using namespace std
  1 file changed, 4 insertions(+), 6 deletions(-)
-
+```
 ### 3.3 Отправляем ветку patch1 на GitHub
+```bash
 git push origin patch1
 #Output:
 Username for 'https://github.com': PavelDats1
@@ -403,8 +417,9 @@ remote:      https://github.com/PavelDats1/lab02/pull/new/patch1
 remote: 
 To https://github.com/PavelDats1/lab02.git
  * [new branch]      patch1 -> patch1
-
+```
 ### 3.4 Добавляем комментарии в hello_world.cpp
+```bash
 cat > hello_world.cpp << 'EOF'
 #include <iostream>
 #include <string>
@@ -457,8 +472,9 @@ Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 To https://github.com/PavelDats1/lab02.git
    3b1cec4..3230ca9  patch1 -> patch1
-
+```
 ### 3.5 Создаем Pull Request на GitHub и удаляем ветку
+```bash
 git checkout main
 git pull origin main
 git branch -d patch1
@@ -481,10 +497,11 @@ Fast-forward
 Deleted branch patch1 (was 3230ca9).
 
 * main
-
+```
 ## Homework Part 3
 
 ### 4.1 Создаем ветку patch2
+```bash
 git checkout -b patch2
 git branch
 #Output:
@@ -492,8 +509,9 @@ Switched to a new branch 'patch2'
 
   main
 * patch2
-
+```
 ### 4.2  Устанавливаем clang-format
+```bash
 sudo apt install clang-format -y
 clang-format --version
 #Output: 
@@ -522,8 +540,9 @@ Setting up clang-format:amd64 (1:18.0-59~exp2) ...
 Processing triggers for man-db (2.12.0-4build2) ...
 
 Ubuntu clang-format version 18.1.3 (1ubuntu1)
-
+```
 ### 4.3 Форматируем код в стиле Mozilla
+```bash
 clang-format -style=Mozilla -i hello_world.cpp
 cat hello_world.cpp
 #Output:
@@ -542,8 +561,9 @@ main()
   std::cout << "Hello world from " << name << std::endl;
   return 0;
 }
-
+```
 ### 4.4 Patch2 
+```bash
 git commit -am "Apply Mozilla code style"
 git push origin patch2
 #Output:
@@ -565,8 +585,9 @@ remote:      https://github.com/PavelDats1/lab02/pull/new/patch2
 remote: 
 To https://github.com/PavelDats1/lab02.git
  * [new branch]      patch2 -> patch2
-
+```
 ### 4.5 Создаем конфликт в ветке
+```bash
 git checkout main
 cat > hello_world.cpp << 'EOF'
 #include <iostream>
@@ -627,8 +648,9 @@ Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 To https://github.com/PavelDats1/lab02.git
    f2f61bb..15209bb  main -> main
-
+```
 ### 4.6 Переключаемся на patch2 и делаем rebase
+```bash
 git checkout patch2
 git pull --rebase origin main
 #Output:
@@ -644,8 +666,9 @@ hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
 hint: You can instead skip this commit: run "git rebase --skip".
 hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
 Could not apply 23602ca... Apply Mozilla code style
-
+```
 ### 4.7 Разрешаем конфликт
+```bash
 cat > hello_world.cpp << 'EOF'
 #include <iostream>
 #include <string>
@@ -689,8 +712,9 @@ int main()
 [detached HEAD c15820b] Apply Mozilla code style
  1 file changed, 1 insertion(+), 7 deletions(-)
 Successfully rebased and updated refs/heads/patch2.
-
+```
 ### 4.8 Force push 
+```bash
 git push --force origin patch2
 #Output:
 Username for 'https://github.com': PavelDats1
@@ -704,8 +728,9 @@ Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
 To https://github.com/PavelDats1/lab02.git
  + 23602ca...c15820b patch2 -> patch2 (forced update)
-
+```
 ### 4.9 Создаем Pull Request и вмерживаем
+```bash
 git checkout main
 git pull origin main
 git branch -d patch2
@@ -742,5 +767,5 @@ d337ead Add .gitignore
 f23be2d Merge branch 'main' of https://github.com/PavelDats1/lab02
 e59fb8b initial commit
 476216f Initial commit
-
+```
 
